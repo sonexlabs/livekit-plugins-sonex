@@ -5,32 +5,53 @@ build-backend = "hatchling.build"
 [project]
 name = "livekit-plugins-sonex"
 version = "0.1.0"
-description = "LiveKit Agents plugin for SonexLabs TTS"
+description = "LiveKit Agents plugin for SonexLabs Text-to-Speech (TTS)"
 readme = "README.md"
-license = { text = "Apache-2.0" }
-authors = [{ name = "SonexLabs", email = "hi@sonexlabs.com" }]
-keywords = ["audio", "livekit", "realtime", "sonexlabs", "tts", "webrtc"]
+requires-python = ">=3.10"
+
+license = "Apache-2.0"
+
+authors = [
+    { name = "SonexLabs", email = "hi@sonexlabs.com" }
+]
+
+keywords = [
+    "livekit",
+    "livekit-agents",
+    "sonexlabs",
+    "tts",
+    "text-to-speech",
+    "voice",
+    "audio",
+    "realtime",
+    "webrtc"
+]
+
 classifiers = [
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-requires-python = ">=3.10.0"
+
 dependencies = [
     "livekit-agents>=1.6.7",
     "aiohttp>=3.9.0",
 ]
 
 [project.urls]
+Homepage = "https://www.sonexlabs.com"
 Documentation = "https://docs.sonexlabs.com"
-Website = "https://www.sonexlabs.com"
-Source = "https://github.com/sonexlabs/livekit-plugins-sonex"
+Repository = "https://github.com/sonexlabs/livekit-plugins-sonex"
+Issues = "https://github.com/sonexlabs/livekit-plugins-sonex/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["livekit"]
