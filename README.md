@@ -1,6 +1,6 @@
 # livekit-plugins-sonex
 
-Official LiveKit Agents plugin for **SonexLabs Text-to-Speech**.
+LiveKit Agents plugin for **SonexLabs Text-to-Speech**.
 
 This package allows LiveKit Agents to synthesize speech using SonexLabs' TTS API through the standard LiveKit plugin interface.
 
