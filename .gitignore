@@ -11,3 +11,4 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
+plugin_test_output.wav
