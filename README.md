@@ -1,4 +1,3 @@
-````markdown
 # livekit-plugins-sonex
 
 LiveKit Agents plugin for **SonexLabs Text-to-Speech**.
@@ -41,6 +40,8 @@ The plugin requires a SonexLabs API key.
 You can either pass it directly:
 
 ```python
+from livekit.plugins import sonex
+
 tts = sonex.TTS(
     api_key="vsk_xxxxxxxxx",
     voice_id="YOUR_VOICE_ID",
@@ -102,4 +103,4 @@ session = AgentSession(
 ## License
 
 Apache-2.0
-````
+
