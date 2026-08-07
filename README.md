@@ -1,3 +1,4 @@
+````markdown
 # livekit-plugins-sonex
 
 LiveKit Agents plugin for **SonexLabs Text-to-Speech**.
@@ -80,11 +81,14 @@ session = AgentSession(
 ## Parameters
 
 | Parameter | Description |
-|----------|-------------|
-| api_key | Sonex API key (optional if SONEX_API_KEY is set) |
-| voice_id | Sonex voice ID |
-| model | TTS model (default: panini) |
-| sample_rate | Output sample rate (default: 24000 Hz) |
+|-----------|-------------|
+| `api_key` | Sonex API key (optional if `SONEX_API_KEY` is set) |
+| `voice_id` | Sonex voice ID |
+| `language` | Optional language code (e.g. `en`, `hi`). If omitted, Sonex auto-detects the language. |
+| `speed` | Speech rate multiplier (default: `1.0`) |
+| `sample_rate` | Output sample rate (default: `24000` Hz) |
+| `base_url` | SonexLabs API base URL (optional) |
+| `http_session` | Optional existing `aiohttp.ClientSession` |
 
 ---
 
@@ -98,3 +102,4 @@ session = AgentSession(
 ## License
 
 Apache-2.0
+````
