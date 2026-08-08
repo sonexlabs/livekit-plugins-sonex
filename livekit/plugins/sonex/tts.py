@@ -15,11 +15,21 @@ Rime, ElevenLabs, and other providers plug in:
         # ... llm, stt, vad, turn_handling, etc.
     )
 
-This is a non-streaming (chunked) implementation: each call to
-``synthesize()`` sends the full input text to SonexLabs' ``/v1/speech``
-endpoint in one request and returns the resulting audio. SonexLabs' API does
-not currently offer a WebSocket/streaming endpoint, so ``TTSCapabilities.streaming``
-is ``False`` and ``TTS.stream()`` is not supported — use ``synthesize()`` only.
+Each call to ``synthesize()`` sends the input text to SonexLabs'
+``/v1/speech/stream`` endpoint, which returns audio as chunked HTTP as soon
+as each sentence is ready, rather than waiting for the entire utterance to
+finish generating. Audio bytes are pushed to the output emitter as they
+arrive, so downstream playback can start well before the full response has
+been received. SonexLabs' API does not offer a WebSocket/real-time-text
+streaming endpoint, so ``TTSCapabilities.streaming`` is ``False`` and
+``TTS.stream()`` is not supported — use ``synthesize()`` only.
+
+Connections are kept alive and reused across requests: when no explicit
+``http_session`` is supplied, the plugin uses LiveKit Agents' shared,
+process-wide ``aiohttp.ClientSession`` (via ``utils.http_context``), which
+pools and reuses TCP/TLS connections instead of reconnecting on every
+synthesis call — this avoids paying DNS/TCP/TLS setup cost more than once
+per process.
 
 The response is requested as WAV. Rather than relying on LiveKit Agents'
 built-in ``av``-based audio decoder (which requires the optional ``codecs``
@@ -204,7 +214,7 @@ class ChunkedStream(tts.ChunkedStream):
 
         try:
             async with self._tts._ensure_session().post(
-                f"{self._tts._base_url}/v1/speech",
+                f"{self._tts._base_url}/v1/speech/stream",
                 json=payload,
                 headers={
                     "Authorization": f"Bearer {self._tts._api_key}",
