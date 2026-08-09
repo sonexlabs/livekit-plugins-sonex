@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "livekit-plugins-sonex"
-version = "0.2.0"
+version = "0.2.1"
 description = "LiveKit Agents plugin for SonexLabs Text-to-Speech (TTS)"
 readme = "README.md"
 requires-python = ">=3.10"
