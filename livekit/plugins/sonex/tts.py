@@ -10,7 +10,7 @@ Rime, ElevenLabs, and other providers plug in:
     session = AgentSession(
         tts=sonex.TTS(
             api_key="vsk_...",
-            voice_id="en-US-male-1",
+            voice_id="72ly9crx9v",  # from GET /v1/voices
         ),
         # ... llm, stt, vad, turn_handling, etc.
     )
