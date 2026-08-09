@@ -55,7 +55,7 @@ Synthesis requests are sent to SonexLabs' `/v1/speech/stream` endpoint, so audio
 |---|---|---|---|
 | `api_key` | `str` | — | SonexLabs API key. Falls back to `SONEX_API_KEY` if not set. |
 | `voice_id` | `str` | — | **Required.** Voice ID from `GET /v1/voices`. |
-| `language` | `str` | auto-detect | BCP-47 tag (e.g. `en`, `hi`). Omit to auto-detect. |
+| `language` | `str` | auto-detect | Language code (e.g. `en`, `hi`). Leave unset to auto-detect. |
 | `speed` | `float` | `1.0` | Speech rate multiplier. |
 | `sample_rate` | `int` | `24000` | Output sample rate in Hz. Not sent to the API — Panini always returns audio at its native rate; this value is used for LiveKit-side reporting only. |
 | `base_url` | `str` | `https://api.sonexlabs.com` | SonexLabs API base URL. |
