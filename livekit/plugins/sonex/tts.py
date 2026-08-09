@@ -84,8 +84,8 @@ class TTS(tts.TTS):
                 ``SONEX_API_KEY`` environment variable if not given.
             voice_id: Voice ID from SonexLabs' voice library. Required —
                 list available voices with ``GET /v1/voices``.
-            language: Optional language code (e.g. ``"en"``, ``"hi"``).
-                Leave unset to let Panini auto-detect from the input text.
+            language: Optional language override. Leave unset to let
+                Panini auto-detect from the input text.
             speed: Speech rate multiplier. ``1.0`` is normal speed.
             sample_rate: Output PCM sample rate in Hz. Defaults to ``24000``.
                 Note: this is the rate reported to LiveKit; the actual sample
